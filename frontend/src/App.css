@@ -1,0 +1,124 @@
+.main-page-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card-container {
+  width: 100%;
+  max-width: 300px;
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-container:hover {
+  transform: scale(1.05);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px; /* Border radius for a modern look */
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 400px; /* Set a specific height */
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 18px;
+}
+
+.card-description {
+  font-size: 14px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Show three lines */
+  -webkit-box-orient: vertical;
+  line-height: 1.5; /* Set the line height for better readability */
+}
+
+.card-description::after {
+  content: '...';
+  display: inline-block;
+  margin-left: 3px;
+}
+
+@media (min-width: 576px) {
+  .card-container {
+    max-width: 45%;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-container {
+    max-width: 30%;
+  }
+}
+
+
+/* Main Details Page Style  */
+/* MainDetailsPage.css */
+/* MainDetailsPage.css */
+
+.main-details-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main-details-header {
+  background-color: #3498db; /* Add a background color to the header */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: hidden;
+}
+
+.profile-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.main-details-content {
+  margin-top: 20px;
+}
+
+.details-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #3498db; /* Match the header background color */
+}
+
+.details-info {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.details-description {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  .main-details-container {
+    padding: 10px;
+  }
+}
