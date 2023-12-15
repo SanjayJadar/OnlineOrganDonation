@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MainPage = () => {
+const Posts = () => {
   return (
     <div className="main-page-container">
       {/* Card 1 */}
@@ -69,4 +69,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default Posts;

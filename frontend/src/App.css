@@ -10,6 +10,7 @@
   margin: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .card-container:hover {
@@ -68,57 +69,276 @@
 }
 
 
-/* Main Details Page Style  */
-/* MainDetailsPage.css */
-/* MainDetailsPage.css */
+/* Main Details Page Style and Admin Details View Styling  */ 
 
-.main-details-container {
-  max-width: 800px;
+.main-details-container { 
   margin: 0 auto;
   padding: 20px;
   background-color: #f8f8f8;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex; /* Use flexbox to create a flexible container */
+  /* grid-template-columns: auto auto;  */
 }
 
 .main-details-header {
-  background-color: #3498db; /* Add a background color to the header */
+  /* background-color: #3498db; */
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   overflow: hidden;
+  flex: 1; /* Take 50% width on large screens */ 
 }
 
 .profile-image {
-  width: 100%;
+  width: 70%; 
   height: auto;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 10px;  
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
 }
 
 .main-details-content {
   margin-top: 20px;
+ 
+  flex: 1; /* Take 50% width on large screens */
 }
 
 .details-title {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #3498db; /* Match the header background color */
+  color: #3498db;
 }
 
 .details-info {
-  font-size: 16px;
+  font-size: 24px;
   margin-bottom: 10px;
 }
 
 .details-description {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.5;
   margin-bottom: 10px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 980px) {
   .main-details-container {
+    flex-direction: column; /* Stack items vertically on small screens */
     padding: 10px;
   }
+
+  .main-details-header,
+  .main-details-content {
+    width: 100%; /* Take full width on small screens */
+  }
+}
+
+.details-actions {
+  display: flex;
+  /* justify-content: space-between; */
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.post-button,
+.delete-button {
+  padding: 10px 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.post-button {
+  background-color: #2ecc71; /* Green color for the Post button */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.delete-button {
+  background-color: #e74c3c; /* Red color for the Delete button */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+
+/* Headeer Styling  *//* Header.css */
+
+.header-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  /* justify-content: space-between; */
+  padding: 25px; /* Increase the padding for better spacing */
+  background-color: #3498db; 
+}
+
+.header-title {
+  font-size: 35px; /* Increase the font size for better visibility */
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  color: #fff;
+  margin: 0; 
+  text-align: center;
+}
+
+.profile-image {
+  width: 40px; /* Increase the size of the profile image */
+  height: 40px; /* Increase the size of the profile image */
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.profile-image:hover {
+  opacity: 0.8;
+}
+
+
+/* Admin Page Styling  */ 
+/* TabHeader.css */
+
+.tab-header-container {
+  display: flex;
+  padding: 10px;
+  background-color: #3498db;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.tab {
+  flex: 1;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+
+.tab-text {
+  font-size: 20px; /* Larger font size */
+  color: #fff;
+  z-index: 1; /* Ensure text is above the line */
+}
+
+.tab-line {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background-color: #fff;
+  opacity: 0; /* Initially invisible */
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.tab:hover .tab-line {
+  opacity: 1; /* Make the line visible on hover */
+}
+
+.tab:hover .tab-text {
+  color: #ecf0f1; /* Change text color on hover */
+}
+
+
+
+
+
+
+
+
+
+
+/* Login Page Styling  */
+/* LoginForm.css */
+
+.login-container {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px;
+  width: 300px;
+  max-width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.login-header {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-field {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.login-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    width: 100%;
+  }
+}
+
+
+
+/* BackToHome Component Styles */
+.back-to-home {
+background-color: #333;
+color: white;
+padding: 10px;
+text-align: center;
+}
+
+.back-to-home-heading {
+font-size: 20px;
+margin: 0;
+}
+
+.arrow {
+margin-left: 10px;
+font-size: 24px;
+}
+
+
+/* AdminMessage Component Styles */
+.admin-message {
+background-color: #f44336; /* Red background color */
+color: white;
+padding: 10px;
+text-align: center;
+}
+
+.admin-message-text {
+font-size: 16px;
+margin: 0;
+font-weight: bold;
 }

@@ -1,6 +1,6 @@
 import React from 'react'; 
 
-const MainDetailsPage = () => {
+const PostDetails = () => {
   return (
     <div className="main-details-container">
       <div className="main-details-header">
@@ -35,4 +35,4 @@ const MainDetailsPage = () => {
   );
 };
 
-export default MainDetailsPage;
+export default PostDetails;
