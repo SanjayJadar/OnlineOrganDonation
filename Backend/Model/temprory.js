@@ -24,6 +24,7 @@ const tempDataSchema = new mongoose.Schema({
     },
     address: {
         type: String,
+        maxlength: 150
     },
     description: {
         type: String,

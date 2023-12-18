@@ -1,18 +1,16 @@
-import React, { useState } from 'react'; 
+import React from 'react'; 
 import { useNavigate } from 'react-router-dom';  
 
 const LoginPage = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const username = 'username';
+  const password = 'password';
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', { username, password });
+    e.preventDefault(); 
     if(username==='username' && password==='password'){
-      navigate('/');
+      navigate('/admin'); 
     }
-     
   };
 
   return (
@@ -40,8 +38,7 @@ const LoginPage = () => {
             id="username"
             name="username"
             className="form-input"
-            value='username'
-            onChange={(e) => setUsername(e.target.value)}
+            value='username' 
             required
           />
         </div>
@@ -52,8 +49,7 @@ const LoginPage = () => {
             id="password"
             name="password"
             className="form-input"
-            value='password'
-            onChange={(e) => setPassword(e.target.value)}
+            value='password' 
             required
           />
         </div>
