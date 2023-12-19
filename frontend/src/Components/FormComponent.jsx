@@ -1,4 +1,6 @@
 import React, { useState } from 'react'; 
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
 const genderOptions = ['Male', 'Female', 'Other'];
@@ -16,13 +18,23 @@ const FormComponent = () => {
   const [otherContactDetails, setotherContactDetails] = useState('');
   const [id_Proof, setid_Proof] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const navigate = useNavigate();
 
-    // Handle form submission logic here
-
-    // You can access the form data using the state variables
-    
+  const handleSubmit = async(e) => {
+      e.preventDefault();
+      try{
+        await axios.post('http://localhost:5400/post', {name, age, bloodGroup, gender, id_Proof, liveImage, address, description, compensation, mobileNumber, otherContactDetails})
+        .then(res=>{
+          alert('Your request posted successfully');
+          navigate('/');
+        })
+        .catch(res=>{
+          console.log(res);
+          console.log("Data not sent");
+        })
+      }catch(err){
+        console.error(err);
+      }
   };
 
   return (

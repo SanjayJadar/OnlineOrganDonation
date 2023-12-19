@@ -4,7 +4,7 @@ const TemporaryCollection = require('../Model/temprory');
 const router = express.Router();
 
 // Post Data
-router.get('/post', async(req,res)=>{
+router.post('/post', async(req,res)=>{
     await TemporaryCollection.insertMany(req.body)
     .then(data=>res.json(data))
     .catch(err=>res.json(err));
@@ -26,7 +26,8 @@ router.get('/get/:id', async(req,res)=>{
 })
 
 // Delete Particular Data
-router.get('/delete/:id', async(req,res)=>{
+router.delete('/delete/:id', async(req,res)=>{
+    const id = req.params.id;
     await TemporaryCollection.findByIdAndDelete({_id:id})
     .then(data=>res.json(data))
     .catch(err=>res.json(err));

@@ -4,7 +4,7 @@ const RecipientCollection = require('../Model/recipient');
 const router = express.Router();
 
 // Post Data
-router.get('/main/post', async(req,res)=>{
+router.post('/main/post', async(req,res)=>{
     await RecipientCollection.insertMany(req.body)
     .then(data=>res.json(data))
     .catch(err=>res.json(err));
@@ -26,7 +26,8 @@ router.get('/main/get/:id', async(req,res)=>{
 })
 
 // Delete Particular Data
-router.get('/main/delete/:id', async(req,res)=>{
+router.delete('/main/delete/:id', async(req,res)=>{
+    const id = req.params.id;
     await RecipientCollection.findByIdAndDelete({_id:id})
     .then(data=>res.json(data))
     .catch(err=>res.json(err));
