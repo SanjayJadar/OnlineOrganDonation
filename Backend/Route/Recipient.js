@@ -18,12 +18,17 @@ router.get('/main/get', async(req,res)=>{
         const reversedData = data.slice().reverse();
         const page = req.query.page;
         const limit = req.query.limit;
-
-        const startIndex = (page-1)*limit;
-        const endIndex = page*limit;
-
-        const result = reversedData.slice(startIndex, endIndex);
-        res.json(result);
+        
+        if(page && limit){
+            const startIndex = (page-1)*limit;
+            const endIndex = page*limit;
+    
+            const result = reversedData.slice(startIndex, endIndex);
+            res.json(result);
+        }
+        else{
+            res.json(reversedData);
+        }
     })
     .catch(err=>res.json(err));
 })
