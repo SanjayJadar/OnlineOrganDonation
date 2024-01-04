@@ -1,7 +1,7 @@
 .main-page-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-around;  
 }
 
 .card-container {
@@ -10,7 +10,9 @@
   margin: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
-  cursor: pointer;
+  cursor: pointer; 
+  border-radius: 10px;
+  background-color: #e8efef;
 }
 
 .card-container:hover {
@@ -19,8 +21,7 @@
 
 .card {
   display: flex;
-  flex-direction: column;
-  border-radius: 10px; /* Border radius for a modern look */
+  flex-direction: column; 
   overflow: hidden;
 }
 
@@ -68,15 +69,72 @@
   }
 }
 
+/* Placeholder boxes */
+.card-container.placeholder {
+  background-color: #bebebe; /* Light gray background for placeholders */
+  margin: 10px; 
+}
+
+/* Placeholder content */
+.placeholder-content {
+  width: 50%;
+  height: 500px;  
+  /* background-color: #ccc; Placeholder content bac~kground color */
+}
+
+/* Responsive styles */
+@media (min-width: 576px) {
+  .card-container.placeholder {
+    max-width: calc(45% - 20px); /* 45% of the container width with 20px margin */
+  }
+}
+
+@media (min-width: 768px) {
+  .card-container.placeholder {
+    max-width: calc(30% - 20px); /* 30% of the container width with 20px margin */
+  }
+}
+
+@media (min-width: 992px) {
+  .card-container.placeholder {
+    max-width: calc(33.33% - 20px); /* 33.33% of the container width with 20px margin */
+  }
+}
+
+.loading{
+  text-align: center;
+  padding: 10px;
+  margin: 10px 0;
+  color: #555;
+  font-style: italic; 
+}
+
+.notLoading{
+  text-align: center;
+  padding: 10px;
+  margin: 10px 0;
+  color: #888;
+  font-weight: bold; 
+}
+
+
+
+
+
+
+
+
+
+
 
 /* Main Details Page Style and Admin Details View Styling  */ 
 
 .main-details-container { 
   margin: 0 auto;
   padding: 20px;
-  background-color: #f8f8f8;
+  /* background-color: #f8f8f8; 
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   display: flex; /* Use flexbox to create a flexible container */
   /* grid-template-columns: auto auto;  */
 }
@@ -89,7 +147,7 @@
   flex: 1; /* Take 50% width on large screens */ 
 }
 
-.profile-image {
+.patient-image {
   width: 70%; 
   height: auto;
   object-fit: cover;
@@ -138,8 +196,9 @@
 .details-actions {
   display: flex;
   /* justify-content: space-between; */
-  justify-content: space-around;
-  margin-top: 20px;
+  float: left; 
+  /* margin: 20px 40px 0 0; */
+
 }
 
 .post-button,
@@ -147,6 +206,7 @@
   padding: 10px 15px;
   font-size: 24px;
   cursor: pointer;
+  margin: 30px;
 }
 
 .post-button {
@@ -164,29 +224,82 @@
 }
 
 
-/* Headeer Styling  *//* Header.css */
 
+
+
+
+
+
+
+
+/* Headeer Styling  *//* Header.css */
 .header-container {
-  display: grid;
-  grid-template-columns: auto auto;
+  display: flex; 
+  justify-content: space-between;
   align-items: center;
-  /* justify-content: space-between; */
-  padding: 25px; /* Increase the padding for better spacing */
-  background-color: #3498db; 
+  padding: 20px;
+  background-color: #3498db;  
+}
+
+.header-left {
+  flex-grow: 1;
 }
 
 .header-title {
-  font-size: 35px; /* Increase the font size for better visibility */
+  font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 300;
   color: #fff;
-  margin: 0; 
-  text-align: center;
+  margin-bottom: 10px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center; 
+}
+
+.post-request-button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.post-request-button:hover {
+  background-color: #45a049;
+}
+
+.blood-group-container {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.blood-group-label {
+  color: #fff;
+  margin-right: 10px;
+}
+
+.blood-group-dropdown {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #fff;
+  color: #3498db;
+}
+
+.blood-group-dropdown:hover {
+  background-color: #eee;
 }
 
 .profile-image {
-  width: 40px; /* Increase the size of the profile image */
-  height: 40px; /* Increase the size of the profile image */
+  width: 40px;
+  height: 40px;
   object-fit: cover;
   border-radius: 50%;
   cursor: pointer;
@@ -196,16 +309,42 @@
   opacity: 0.8;
 }
 
+@media (min-width: 768px) {
+  .header-container {
+    flex-direction: row;
+  }
 
-/* Admin Page Styling  */ 
-/* TabHeader.css */
+  .header-left {
+    flex-grow: 1;
+    margin-right: 20px;
+  }
+
+  .header-title {
+    font-size: 24px;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* Admin Header Page Styling  */ 
+/* AdminHeader.css */
 
 .tab-header-container {
-  display: flex;
+  display: flex; 
   padding: 10px;
-  background-color: #3498db;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  background-color: #3498db;  
 }
 
 .tab {
@@ -233,13 +372,15 @@
   transition: opacity 0.3s ease; /* Smooth transition */
 }
 
-.tab:hover .tab-line {
-  opacity: 1; /* Make the line visible on hover */
+.tab:hover .tab-line,
+.tab.active .tab-line {
+  opacity: 1; /* Make the line visible on hover and for the active tab */
 }
 
 .tab:hover .tab-text {
   color: #ecf0f1; /* Change text color on hover */
 }
+
 
 
 

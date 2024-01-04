@@ -12,8 +12,24 @@ router.post('/post', async(req,res)=>{
 
 // Get Data
 router.get('/get', async(req,res)=>{
-    await TemporaryCollection.find({})
-    .then(data=>res.json(data))
+    await TemporaryCollection.find({}) 
+    .then(data=>{
+        // Reverse Data
+        const reversedData = data.slice().reverse();
+        const page = req.query.page;
+        const limit = req.query.limit;
+        
+        if(page && limit){
+            const startIndex = (page-1)*limit;
+            const endIndex = page*limit;
+    
+            const result = reversedData.slice(startIndex, endIndex);
+            res.json(result);
+        }
+        else{
+            res.json(reversedData);
+        }
+    })
     .catch(err=>res.json(err));
 })
 

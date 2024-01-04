@@ -34,12 +34,15 @@ const RecipientSchema = new mongoose.Schema({
         maxlength: 2000,
     },
     mobileNumber: {
-        type: String,
-        match: [/^\d{10}$/, 'Please enter a valid 10-digit mobile number'],
+        type: String, 
     },
     otherContactDetails: {
         type: String,
     },
+    createdAt: {
+        type: Date,
+        default: new Date(),
+    }
 });
 
 const RecipientCollection = mongoose.model('recipients', RecipientSchema);

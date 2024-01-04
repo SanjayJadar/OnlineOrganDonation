@@ -1,22 +1,20 @@
 import './App.css';
-import {Route,Routes} from 'react-router-dom';
-import AdminPage from './Components/AdminPage'; 
-import UserPage from './Components/UserPage';
-import LoginPage from './Components/Login';
-import UserViewPost from './Components/UserViewPost';
-import AdminViewPost from './Components/AdminViewPost';
-import FormComponent from './Components/FormComponent';
+import {Route,Routes} from 'react-router-dom';  
+import AdminMainPage from './Components/AdminComponents/AdminMainPage';
+import UserMainPage from './Components/UserComponents/UserMainPage'; 
+import LoginPage from './Components/AdminComponents/LoginPage';
+import PostDetails from './Components/CommonComponents/PostDetails';
+import FormComponent from './Components/UserComponents/FormComponent';
 
 function App() {
   return (
     <div className="App"> 
           <Routes>
-             <Route exact path="/" element={<UserPage/>} />
-             <Route exact path="/details" element={<UserViewPost/>} />
-             <Route exact path="/request" element={<FormComponent/>} />
-             <Route path="/login" element={<LoginPage/>} />
-             <Route path="/admin" element={<AdminPage/>} /> 
-             <Route path="/admin/details" element={<AdminViewPost/>} /> 
+             <Route exact path="/" element={<UserMainPage/>} />
+             <Route exact path="/login" element={<LoginPage/>} />
+             <Route exact path="/admin" element={<AdminMainPage/>} />  
+             <Route exact path="/details" element={<PostDetails/>} />  
+             <Route exact path="/request" element={<FormComponent/>} />  
           </Routes>  
     </div>
   );

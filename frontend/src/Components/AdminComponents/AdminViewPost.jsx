@@ -28,8 +28,7 @@ const AdminViewPost = () => {
           Pellentesque in ipsum id orci porta dapibus. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, facere necessitatibus iste perferendis sunt ipsum assumenda in molestiae atque ratione temporibus soluta nihil error quae porro, alias mollitia vel quidem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam maiores assumenda autem animi officiis rem deserunt commodi dolore, quo illum distinctio nostrum, porro aspernatur qui quas recusandae non labore voluptatem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, provident omnis temporibus id in, iusto tempora error fugit impedit, illo natus deleniti eum veniam perspiciatis optio distinctio magni soluta expedita!
         </div>
         <div className="details-info">Mobile Contact: 123-456-7890</div>
-        <div className="details-info">Other Contact: example@email.com</div>
-        {/* Add more details as needed */}
+        <div className="details-info">Other Contact: example@email.com</div> 
         <div className="details-actions">
           <button className="post-button">Post</button>
           <button className="delete-button">Delete</button>

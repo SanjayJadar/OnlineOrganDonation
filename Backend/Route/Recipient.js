@@ -13,7 +13,42 @@ router.post('/main/post', async(req,res)=>{
 // Get Data
 router.get('/main/get', async(req,res)=>{
     await RecipientCollection.find({})
-    .then(data=>res.json(data))
+    .then(data=>{
+        // Reverse Data
+        const reversedData = data.slice().reverse();
+        const page = req.query.page;
+        const limit = req.query.limit;
+
+        const startIndex = (page-1)*limit;
+        const endIndex = page*limit;
+
+        const result = reversedData.slice(startIndex, endIndex);
+        res.json(result);
+    })
+    .catch(err=>res.json(err));
+})
+
+// Get Particular Data BloodGroup
+router.get('/main/get/blood/:id', async(req,res)=>{
+    const id = req.params.id;
+    await RecipientCollection.find({bloodGroup:id})
+    .then(data=>{
+        // Reverse Data
+        const reversedData = data.slice().reverse();
+        const page = req.query.page;
+        const limit = req.query.limit;
+        
+        if(page && limit){
+            const startIndex = (page-1)*limit;
+            const endIndex = page*limit;
+    
+            const result = reversedData.slice(startIndex, endIndex);
+            res.json(result);
+        }
+        else{
+            res.json(reversedData);
+        }
+    })
     .catch(err=>res.json(err));
 })
 

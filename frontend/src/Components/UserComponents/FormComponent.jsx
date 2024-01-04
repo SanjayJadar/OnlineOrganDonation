@@ -24,14 +24,16 @@ const FormComponent = () => {
       e.preventDefault();
       try{
         await axios.post('http://localhost:5400/post', {name, age, bloodGroup, gender, id_Proof, liveImage, address, description, compensation, mobileNumber, otherContactDetails})
-        .then(res=>{
-          alert('Your request posted successfully');
-          navigate('/');
+        .then(res=>{ 
+          if(res.data.message){
+            alert(res.data.message)
+          }
+          else{ 
+            alert('Posted Successfully');
+            navigate('/')
+          }
         })
-        .catch(res=>{
-          console.log(res);
-          console.log("Data not sent");
-        })
+        .catch(e=>console.log(e.message));
       }catch(err){
         console.error(err);
       }
@@ -41,22 +43,22 @@ const FormComponent = () => {
     <form className="custom-form" onSubmit={handleSubmit}>
       <label>
         Patient ImageUrl:
-        <input type="text" value={liveImage} onChange={(e) => setliveImage(e.target.value)} />
+        <input type="text" required value={liveImage} onChange={(e) => setliveImage(e.target.value)} />
       </label>
 
       <label>
         Patient Name:
-        <input type="text" value={name} onChange={(e) => setname(e.target.value)} />
+        <input type="text" required value={name} onChange={(e) => setname(e.target.value)} />
       </label>
 
       <label>
         Patient Age:
-        <input type="number" value={age} onChange={(e) => setage(e.target.value)} />
+        <input type="number" required value={age} onChange={(e) => setage(e.target.value)} />
       </label>
 
       <label>
         Blood Group:
-        <select value={bloodGroup} onChange={(e) => setbloodGroup(e.target.value)}>
+        <select value={bloodGroup} required onChange={(e) => setbloodGroup(e.target.value)}>
           <option value="">Select Blood Group</option>
           {bloodGroups.map((group) => (
             <option key={group} value={group}>
@@ -68,7 +70,7 @@ const FormComponent = () => {
 
       <label>
         Gender:
-        <select value={gender} onChange={(e) => setgender(e.target.value)}>
+        <select required value={gender} onChange={(e) => setgender(e.target.value)}>
           <option value="">Select Gender</option>
           {genderOptions.map((option) => (
             <option key={option} value={option}>
@@ -81,6 +83,7 @@ const FormComponent = () => {
       <label>
         Address (up to 150 words):
         <textarea
+          required
           value={address}
           onChange={(e) => setaddress(e.target.value)}
           rows="4"
@@ -91,6 +94,7 @@ const FormComponent = () => {
       <label>
         Description (up to 2000 words):
         <textarea
+          required
           value={description}
           onChange={(e) => setdescription(e.target.value)}
           rows="8"
@@ -101,6 +105,7 @@ const FormComponent = () => {
       <label>
         Compensation (up to 2000 words):
         <textarea
+          required
           value={compensation}
           onChange={(e) => setcompensation(e.target.value)}
           rows="8"
@@ -110,7 +115,7 @@ const FormComponent = () => {
 
       <label>
         Mobile Number:
-        <input type="number" value={mobileNumber} onChange={(e) => setmobileNumber(e.target.value)} />
+        <input required type="number" value={mobileNumber} onChange={(e) => setmobileNumber(e.target.value)} />
       </label>
 
       <label>
@@ -120,7 +125,7 @@ const FormComponent = () => {
 
       <label>
         Any Valid ID proof URL of Patient :
-        <input type="text" value={id_Proof} onChange={(e) => setid_Proof(e.target.value)} />
+        <input required type="text" value={id_Proof} onChange={(e) => setid_Proof(e.target.value)} />
       </label>
 
       <button type="submit">Submit</button>

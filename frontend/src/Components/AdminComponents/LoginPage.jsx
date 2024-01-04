@@ -1,16 +1,11 @@
 import React from 'react'; 
 import { useNavigate } from 'react-router-dom';  
 
-const LoginPage = () => {
-  const username = 'username';
-  const password = 'password';
+const LoginPage = () => { 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); 
-    if(username==='username' && password==='password'){
-      navigate('/admin'); 
-    }
+  const handleSubmit = (e) => { 
+      navigate('/admin');  
   };
 
   return (
@@ -27,6 +22,12 @@ const LoginPage = () => {
         Only Admin can login and access this page
       </p>
     </div>
+
+    <div className="admin-message" style={{backgroundColor:'#00ff00'}}>
+      <p className="admin-message-text">
+        This is practice project, so you can Login by clicking on Login Button
+      </p>
+    </div>
     
     <div className="login-container">
       <h2 className="login-header">Login</h2>
@@ -38,8 +39,7 @@ const LoginPage = () => {
             id="username"
             name="username"
             className="form-input"
-            value='username' 
-            required
+            value='username'  
           />
         </div>
         <div className="form-field">
@@ -49,8 +49,7 @@ const LoginPage = () => {
             id="password"
             name="password"
             className="form-input"
-            value='password' 
-            required
+            value='password'  
           />
         </div>
         <button type="submit" className="login-button">Login</button>
