@@ -21,7 +21,7 @@ app.use('/', require('./Route/Temporary'));
 // Main API's
 app.use('/', require('./Route/Recipient'));
 
-app.listen(process.env.port || 5400, ()=>{
+app.listen(process.env.PORT || 5400, ()=>{
     console.log('Server is Running');
 })
 
