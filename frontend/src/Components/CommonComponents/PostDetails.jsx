@@ -10,7 +10,7 @@ const PostDetails = () => {
   const DeleteMain = async(id) => {
     const confirm = window.confirm("Are you sure you want to delete this data?");
     if(confirm){
-      axios.delete(`http://localhost:5400/main/delete/${id}`)    
+      axios.delete(`https://onlineorgandonationbackend.onrender.com/main/delete/${id}`)    
       .then(res=>{ 
         if(res.data.message){
           alert(res.data.message)
@@ -27,14 +27,14 @@ const PostDetails = () => {
   const PostTemp = async(recipient) => {
     const confirm = window.confirm("Are you sure you want to forward this data?");
     if(confirm){
-      axios.post(`http://localhost:5400/main/post`, {name: recipient.name, age: recipient.age, bloodGroup: recipient.bloodGroup, gender: recipient.gender, id_Proof: recipient.id_Proof, liveImage: recipient.liveImage, address: recipient.address, description: recipient.description, compensation: recipient.compensation, mobileNumber: recipient.mobileNumber, otherContactDetails: recipient.otherContactDetails, createdAt: recipient.createdAt})
+      axios.post(`https://onlineorgandonationbackend.onrender.com/main/post`, {name: recipient.name, age: recipient.age, bloodGroup: recipient.bloodGroup, gender: recipient.gender, id_Proof: recipient.id_Proof, liveImage: recipient.liveImage, address: recipient.address, description: recipient.description, compensation: recipient.compensation, mobileNumber: recipient.mobileNumber, otherContactDetails: recipient.otherContactDetails, createdAt: recipient.createdAt})
       .then(res=>{ 
         if(res.data.message){
           alert(res.data.message)
         }
         else{ 
           alert('Posted Successfully');
-          axios.delete(`http://localhost:5400/delete/${recipient._id}`)  
+          axios.delete(`https://onlineorgandonationbackend.onrender.com/delete/${recipient._id}`)  
           navigate('/admin')
         }
       })
@@ -46,7 +46,7 @@ const PostDetails = () => {
   const DeleteTemp = async(id) => {
     const confirm = window.confirm("Are you sure you want to delete this data?");
     if(confirm){
-      axios.delete(`http://localhost:5400/delete/${id}`)
+      axios.delete(`https://onlineorgandonationbackend.onrender.com/delete/${id}`)
       .then(res=>{ 
         if(res.data.message){
           alert(res.data.message)

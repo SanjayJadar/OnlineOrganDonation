@@ -23,7 +23,7 @@ const FormComponent = () => {
   const handleSubmit = async(e) => {
       e.preventDefault();
       try{
-        await axios.post('http://localhost:5400/post', {name, age, bloodGroup, gender, id_Proof, liveImage, address, description, compensation, mobileNumber, otherContactDetails})
+        await axios.post('https://onlineorgandonationbackend.onrender.com/post', {name, age, bloodGroup, gender, id_Proof, liveImage, address, description, compensation, mobileNumber, otherContactDetails})
         .then(res=>{ 
           if(res.data.message){
             alert(res.data.message)

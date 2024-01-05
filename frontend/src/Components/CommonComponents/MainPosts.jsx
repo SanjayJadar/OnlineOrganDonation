@@ -12,7 +12,7 @@ const MainPosts = ({access}) => {
   // Fetch Data Page and Limit
   const fetchData = async()=> {
     try{
-      const res = await axios.get(`http://localhost:5400/main/get?page=${page}&limit=6`)
+      const res = await axios.get(`https://onlineorgandonationbackend.onrender.com/main/get?page=${page}&limit=6`)
       const resData = res.data;          
         if (resData.length > 0) {
           if (page === 1) {
@@ -58,10 +58,13 @@ const MainPosts = ({access}) => {
 
 
   // Scroll Infinite Data
-  useEffect(() => {                 
-    window.addEventListener('scroll', handelInfiniteScroll);
-    return () => window.removeEventListener('scroll', handelInfiniteScroll);
-  }, [dataFetching, hasMoreData]);
+  useEffect(() => {        
+    console.log(getData.length);
+    if(getData.length!==0){
+      window.addEventListener('scroll', handelInfiniteScroll);
+      return () => window.removeEventListener('scroll', handelInfiniteScroll);
+    }         
+  }, [dataFetching, hasMoreData, getData]);
 
 
   return (

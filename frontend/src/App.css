@@ -6,7 +6,7 @@
 
 .card-container {
   width: 100%;
-  max-width: 300px;
+  /* max-width: 300px; */
   margin: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
@@ -78,15 +78,14 @@
 /* Placeholder content */
 .placeholder-content {
   width: 50%;
-  height: 500px;  
-  /* background-color: #ccc; Placeholder content bac~kground color */
+  height: 500px;   
 }
 
 /* Responsive styles */
 @media (min-width: 576px) {
   .card-container.placeholder {
     max-width: calc(45% - 20px); /* 45% of the container width with 20px margin */
-  }
+  } 
 }
 
 @media (min-width: 768px) {

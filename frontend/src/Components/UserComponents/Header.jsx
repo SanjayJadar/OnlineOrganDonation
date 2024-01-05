@@ -37,7 +37,7 @@ const Header = ({ selectedBloodGroup, setSelectedBloodGroup }) => {
           </select>
         </div>
         <img
-          src="https://i.pinimg.com/564x/70/26/e8/7026e849daff8eb9b5b4d6c2fa2ed10a.jpg"
+          src="https://ace.jeka.by/assets/images/avatars/profile-pic.jpg"
           alt="Profile"
           className="profile-image"
           onClick={() => navigate('/login')}

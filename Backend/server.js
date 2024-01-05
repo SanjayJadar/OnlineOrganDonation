@@ -26,12 +26,12 @@ app.listen(process.env.PORT || 5400, ()=>{
 })
 
 
-// http://localhost:5400/main/get
-// http://localhost:5400/main/post
-// http://localhost:5400/main/delete/:id
-// http://localhost:5400/main/get/:id
+// https://onlineorgandonationbackend.onrender.com/main/get
+// https://onlineorgandonationbackend.onrender.com/main/post
+// https://onlineorgandonationbackend.onrender.com/main/delete/:id
+// https://onlineorgandonationbackend.onrender.com/main/get/:id
 
-// http://localhost:5400/get
-// http://localhost:5400/post
-// http://localhost:5400/delete/:id
-// http://localhost:5400/get/:id 
+// https://onlineorgandonationbackend.onrender.com/get
+// https://onlineorgandonationbackend.onrender.com/post
+// https://onlineorgandonationbackend.onrender.com/delete/:id
+// https://onlineorgandonationbackend.onrender.com/get/:id 

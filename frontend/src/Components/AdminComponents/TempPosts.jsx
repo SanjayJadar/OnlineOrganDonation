@@ -13,7 +13,7 @@ const TempPosts = ({access}) => {
     // Fetch Data Page and Limit
   const fetchData = async()=> {
     try{
-      const res = await axios.get(`http://localhost:5400/get?page=${page}&limit=6`)
+      const res = await axios.get(`https://onlineorgandonationbackend.onrender.com/get?page=${page}&limit=6`)
       const resData = res.data;   
       if (resData.length > 0) {
         if (page === 1) {
